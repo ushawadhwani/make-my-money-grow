@@ -8,6 +8,12 @@ export const GET_SINGLE_COIN = "get-singl-coin";
 export const UPDATE_SORT_VALUE = "update-sort-value";
 export const DELETE_COIN = "delete-coin";
 
+export const updateSortValue = (data,callBack)=>{
+  return (dispatch) => {
+    dispatch(updateSortValueData(data));
+    callBack && callBack();
+  };
+}
 
 export const saveCoin = (data, callBack) => {
   return (dispatch) => {
@@ -34,6 +40,13 @@ export const removeCoin = (name,callBack) => {
     callBack && callBack();
   };
 };
+
+export const updateSortValueData = (data)=>{
+  return {
+    type: UPDATE_SORT_VALUE,
+    payload: data,
+  };
+}
 
 export const updateSeledctedCoin = (data) => {
   return {

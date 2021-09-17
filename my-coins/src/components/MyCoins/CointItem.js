@@ -19,8 +19,15 @@ const {myCoin} = this.props;
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100" onClick={this.redirectToDetail}>
               <div class="box">
                 <div class="icon"><i class="bi bi-currency-bitcoin"></i></div>
-                <h4 class="title"><a href="">{myCoin.Name}</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
+                <h4 class="title"><a href="">{myCoin.Name} [{myCoin.Ticker}]</a></h4>
+                <p class="description">
+                  <li><strong>Price</strong>: {myCoin.Price}</li>
+                <li><strong>Price Change</strong>: {myCoin.PriceChange}</li>
+                <li><strong>MentionsChange</strong>: {myCoin.MentionsChange}</li>
+                <li><strong>Mentions</strong>: {myCoin.Mentions}</li>
+                <li><strong>PositiveSentimentPrec</strong>: {myCoin.PositiveSentimentPrec}</li>
+                </p>
+
               </div>
             </div>
 

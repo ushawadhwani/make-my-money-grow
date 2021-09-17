@@ -1,10 +1,20 @@
 import React, { Component } from "react";
+import _ from 'lodash'
+import { connect } from "react-redux";
 import {coinsData} from "../../data/myCoinsData"
 import CointItem from "./CointItem";
 import SearchBar from "../Common/SearchBar";
 import SoringElement from "../Common/SortingElement";
 
-export default class MyCoinListing extends Component {
+class MyCoinListing extends Component {
+
+  getSortedCoins = ()=>{
+    const {sortBy} = this.props;
+    let myCoinArray = [];
+    myCoinArray = _.sortBy(coinsData, sortBy,'asc')
+    return myCoinArray;
+  }
+
   render() {
     return (
       <section id="services">
@@ -19,7 +29,7 @@ export default class MyCoinListing extends Component {
           <SoringElement />
           </div>
           <div class="row gy-4">
-            {coinsData.map((item, index) => {
+            {this.getSortedCoins().map((item, index) => {
               return <CointItem myCoin={item} index={index} />;
             })}
           </div>
@@ -28,3 +38,13 @@ export default class MyCoinListing extends Component {
     );
   }
 }
+
+const mapStateToProps = (reducerObj) => {
+  const sortBy = reducerObj.coinObject.sortBy;
+  return {
+    sortBy
+  };
+};
+
+export default connect(mapStateToProps, {
+})(MyCoinListing);

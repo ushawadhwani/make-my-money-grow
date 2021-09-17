@@ -5,7 +5,7 @@ import {coinsData} from "../data/myCoinsData";
 export const INITIAL_STATE = {
   coinList: coinsData,
   selectedCoin: {},
-  sortBy: '',
+  sortBy: 'Name',
 };
 
 export default (state = INITIAL_STATE, action) => {
