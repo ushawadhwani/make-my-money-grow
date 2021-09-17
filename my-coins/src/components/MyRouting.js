@@ -18,10 +18,8 @@ export default class MyRouting extends Component {
         component={MyCoinListing}
         
         />
-        <Route exact path="/detail" 
-        
+        <Route exact path="/detail/:id/:name/:ticker" 
         component={MyCoinDetail}
-        
         />
         <Redirect from="*" to="/" /> 
       </Switch>
