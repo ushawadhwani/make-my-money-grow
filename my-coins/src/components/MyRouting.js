@@ -13,14 +13,8 @@ export default class MyRouting extends Component {
       <BrowserRouter>
 
       <Switch>
-        <Route exact path="/"
-        
-        component={MyCoinListing}
-        
-        />
-        <Route exact path="/detail/:id/:name/:ticker" 
-        component={MyCoinDetail}
-        />
+        <Route exact path="/" component={MyCoinListing} />
+        <Route exact path="/detail/:name/:ticker" component={MyCoinDetail} />
         <Redirect from="*" to="/" /> 
       </Switch>
       </BrowserRouter>

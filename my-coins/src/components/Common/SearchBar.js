@@ -1,10 +1,9 @@
 import React from "react";
+import { withRouter } from "react-router";
 import Popper from "@material-ui/core/Popper";
-import addressData from "../../data/address.json";
+import {coinsData} from "../../data/myCoinsData";
 
-const addressArray = addressData.addresses;
-
-export default class Searchbar extends React.Component {
+class Searchbar extends React.Component {
   constructor() {
     super();
 
@@ -17,8 +16,8 @@ export default class Searchbar extends React.Component {
 
   onChange = (event) => {
     var query = event.target.value;
-    var newArray = addressArray.filter((item) => {
-      const suggestionText = `${item.address1} ${item.address2} ${item.city} ${item.zipcode}`;
+    var newArray = coinsData.filter((item) => {
+      const suggestionText = `${item.Name} (${item.Ticker})`;
       if (suggestionText.toLowerCase().includes(query.toLowerCase())) {
         return item;
       }
@@ -33,8 +32,15 @@ export default class Searchbar extends React.Component {
   listItemClicked = (event) => {
     const data = this.state.suggestions[event.currentTarget.id];
     this.setState({
-      value: `${data.address1}, ${data.address2}, ${data.city}, ${data.zipcode}`,
+      value: `${data.Name} (${data.Ticker})`,
       suggestions: [],
+    });
+    this.props.history.push({
+      pathname:
+        "/detail/" +
+        data.Name+
+        "/" +
+        data.Ticker ,
     });
   };
 
@@ -64,8 +70,7 @@ export default class Searchbar extends React.Component {
               return (
                 <>
                   <li onClick={this.listItemClicked} id={index}>
-                    {`${data.address1}, ${data.address2},`} <br />
-                    {`${data.city}, ${data.zipcode}`}
+                    {`${data.Name} (${data.Ticker})`} <br />
                   </li>
                   <hr class="hr" />
                 </>
@@ -77,3 +82,5 @@ export default class Searchbar extends React.Component {
     );
   }
 }
+
+export default withRouter(Searchbar);

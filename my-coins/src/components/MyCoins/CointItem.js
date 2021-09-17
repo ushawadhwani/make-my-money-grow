@@ -4,11 +4,10 @@ import { withRouter } from "react-router";
 class CointItem extends Component {
   redirectToDetail = ()=>{
 const {myCoin} = this.props;
+debugger;
     this.props.history.push({
       pathname:
         "/detail/" +
-        myCoin.Id+
-        "/" +
         myCoin.Name+
         "/" +
         myCoin.Ticker ,
