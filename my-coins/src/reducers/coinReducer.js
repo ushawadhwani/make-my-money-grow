@@ -1,5 +1,5 @@
 
-import { SAVE_COIN,GET_SINGLE_COIN, UPDATE_SORT_VALUE, DELETE_COIN } from "../actions/CoinAction";
+import { SAVE_COIN,GET_SINGLE_COIN, UPDATE_SORT_VALUE } from "../actions/CoinAction";
 import {coinsData} from "../data/myCoinsData";
 
 export const INITIAL_STATE = {
@@ -21,11 +21,6 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         selectedCoin: action.payload,
       };
-    case DELETE_COIN:
-    return {
-    ...state,
-    coinList:action.payload,
-    };
     case UPDATE_SORT_VALUE:
     return {
     ...state,

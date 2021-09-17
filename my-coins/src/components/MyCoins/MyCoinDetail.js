@@ -5,7 +5,7 @@ import { getSingleCoin } from "../../actions/CoinAction";
 class MyCoinDetail extends Component {
   componentDidMount = ()=>{
     const { name } = this.props.match.params;
-    this.props.getSingleCoin(name);
+    this.props.getSingleCoin(name, this.props.coinList);
   }
   
   render() {
@@ -28,7 +28,7 @@ class MyCoinDetail extends Component {
 
     <section class="inner-page pt-4">
       <div class="container">
-      <div class="col-lg-4">
+        {selectedCoin &&  <div class="col-lg-4">
             <div class="portfolio-info">
               <h3> {selectedCoin.Name} ({selectedCoin.Ticker})</h3>
               <ul>
@@ -44,10 +44,17 @@ class MyCoinDetail extends Component {
             <div class="portfolio-description">
               <h2>This is an example of portfolio detail</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                The portfolio details will be there.
+                Like why there is increase or decrease in price of the coin.
+                Popularity about the coin!
+                Countries people using the coin or birth of coin.
               </p>
             </div>
           </div>
+     }
+     {!selectedCoin && <div> 
+       No record with this detail
+       </div>}
       </div>
     </section>
 
@@ -58,10 +65,11 @@ class MyCoinDetail extends Component {
 }
 
 const mapStateToProps = (reducerObj) => {
-
+const coinList = reducerObj.coinObject.coinList;
   const selectedCoin = reducerObj.coinObject.selectedCoin;
   return {
-   selectedCoin
+   selectedCoin,
+   coinList
   };
 };
 
