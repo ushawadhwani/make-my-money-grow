@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {coinsData} from "../../data/myCoinsData"
 import CointItem from "./CointItem";
+import CustomAddress from "../Common/SearchBar";
 
 export default class MyCoinListing extends Component {
   state={
@@ -16,7 +17,7 @@ export default class MyCoinListing extends Component {
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Coins</h2>
-          <p>Here is some random desciption for the coins</p>
+          <CustomAddress />
         </div>
         <div class="row gy-4">
         {coinsData.map((item, index) => {
