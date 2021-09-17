@@ -179,26 +179,23 @@
   margin-top: 10px;
 }
 .paper {
-  border: 1px solid blue;
+  
   padding: 10px;
   background-color: #f2efef;
   margin-top: 10px;
   width: 500px;
 }
-li:hover {
-  background-color: #4caf50;
+.list li:hover {
+  background-color: #50d8af;
   color: #ffffff;
   width: 100%;
 }
-li {
+.list  li {
   list-style-type: none;
   display: block;
   text-align: left;
   cursor: pointer;
   padding: 10px;
-}
-.container {
-  padding-top: 20px;
 }
 .inputBox {
   border: 1px dotted #000000;

@@ -15,10 +15,15 @@ export default class MyCoinListing extends Component {
       <>  
       <section id="services">
       <div class="container" data-aos="fade-up">
-        <div class="section-header">
+        <div class="section-header" style={{    display: 'flex',
+    
+  }}>
           <h2>Coins</h2>
+          <div style={{marginLeft:'auto'}}>
           <CustomAddress />
+          </div>
         </div>
+        
         <div class="row gy-4">
         {coinsData.map((item, index) => {
                     return <CointItem myCoin={item} index={index} />;

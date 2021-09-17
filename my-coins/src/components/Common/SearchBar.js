@@ -42,13 +42,13 @@ export default class Searchbar extends React.Component {
     const { value, suggestions } = this.state;
 
     return (
-      <div class="container">
+      <>
         <input
           name="address"
           type="text"
           value={value}
           onChange={this.onChange}
-          placeholder="Enter Address Here"
+          placeholder="Enter Coin Here"
           class="inputBox"
         />
         <Popper
@@ -58,7 +58,7 @@ export default class Searchbar extends React.Component {
           class="paper"
         >
           <div class="list">
-            <b>Did you mean this address?</b>
+            <b>Did you mean this coin?</b>
             <hr class="hr1" style={{ margin: "10px" }} />
             {suggestions.map((data, index) => {
               return (
@@ -73,22 +73,7 @@ export default class Searchbar extends React.Component {
             })}
           </div>
         </Popper>
-
-        {/* {value !== "" && suggestions.length > 0 && (
-          <div class="list">
-            Do u mean this?
-            <ul>
-              {suggestions.map((data, index) => {
-                return (
-                  <li key={index}>
-                    {data.address1} {data.address2} {data.zipcode} {data.city}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )} */}
-      </div>
+      </>
     );
   }
 }
