@@ -1,44 +1,52 @@
-import React, { Component } from "react";
-import _ from 'lodash'
-import { connect } from "react-redux";
-import CointItem from "./CointItem";
-import SearchBar from "../Common/SearchBar";
-import SoringElement from "../Common/SortingElement";
-import CoinModal from "./CoinModal";
-import {saveCoin} from "../../actions/CoinAction";
+import React, { Component } from 'react';
+import _ from 'lodash';
+import { connect } from 'react-redux';
+import CointItem from './CointItem';
+import SearchBar from '../Common/SearchBar';
+import SoringElement from '../Common/SortingElement';
+import CoinModal from './CoinModal';
+import { saveCoin } from '../../actions/CoinAction';
 class MyCoinListing extends Component {
   state = {
-    isOpen:false
-  }
+    isOpen: false,
+  };
 
-  toggleModal = () =>{
+  toggleModal = () => {
     this.setState({
-      isOpen : !this.state.isOpen
-    })
-  }
-  saveDataInList = (data)=>{
+      isOpen: !this.state.isOpen,
+    });
+  };
+  saveDataInList = (data) => {
     this.props.saveCoin(data);
-  }
+  };
 
-  getSortedCoins = ()=>{
-    const {sortBy} = this.props;
+  getSortedCoins = () => {
+    const { sortBy } = this.props;
     let myCoinArray = [];
-    myCoinArray = _.sortBy(this.props.coinList, sortBy,'asc')
+    myCoinArray = _.sortBy(this.props.coinList, sortBy, 'asc');
     return myCoinArray;
-  }
+  };
 
   render() {
     return (
       <section id="services">
         <div class="container" data-aos="fade-up">
-          <div class="section-header" style={{  display: 'flex'}}>
-            <h2>Coins <i onClick={() => { this.toggleModal()}} class="bi bi-plus-circle-fill"></i></h2>
-            <div style={{marginLeft:'auto'}}>
-            <SearchBar />
+          <div class="section-header" style={{ display: 'flex' }}>
+            <h2>
+              Coins{' '}
+              <i
+                onClick={() => {
+                  this.toggleModal();
+                }}
+                class="bi bi-plus-circle-fill"
+              ></i>
+            </h2>
+            <div style={{ marginLeft: 'auto' }}>
+              <SearchBar />
             </div>
           </div>
           <div class="row gy-4">
-          <SoringElement />
+            <SoringElement />
           </div>
           <div class="row gy-4">
             {this.getSortedCoins().map((item, index) => {
@@ -47,25 +55,24 @@ class MyCoinListing extends Component {
           </div>
         </div>
         <CoinModal
-        
-        collapseOne={this.state.isOpen}
-        collapseOneOpen={() => {
-          this.toggleModal()
-        }}
-        saveDataInList={(data)=>this.saveDataInList(data)}
-      />
-    </section>
+          collapseOne={this.state.isOpen}
+          collapseOneOpen={() => {
+            this.toggleModal();
+          }}
+          saveDataInList={(data) => this.saveDataInList(data)}
+        />
+      </section>
     );
   }
 }
 
 const mapStateToProps = (reducerObj) => {
   const sortBy = reducerObj.coinObject.sortBy;
-  const coinList = reducerObj.coinObject.coinList
+  const coinList = reducerObj.coinObject.coinList;
   return {
-    sortBy,coinList
+    sortBy,
+    coinList,
   };
 };
 
-export default connect(mapStateToProps, {saveCoin
-})(MyCoinListing);
+export default connect(mapStateToProps, { saveCoin })(MyCoinListing);

@@ -1,11 +1,11 @@
-import { applyMiddleware, createStore } from "redux";
-import ReduxThunk from "redux-thunk";
-import { reducers } from "../reducers/reducer";
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { applyMiddleware, createStore } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import { reducers } from '../reducers/reducer';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const persistenceConfigs = {
-  key: "CoinStore", // whatever you want to keep as your key
+  key: 'CoinStore', // whatever you want to keep as your key
   storage,
 };
 

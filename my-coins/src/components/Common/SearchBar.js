@@ -1,14 +1,14 @@
-import React from "react";
-import { withRouter } from "react-router";
-import Popper from "@material-ui/core/Popper";
-import {coinsData} from "../../data/myCoinsData";
+import React from 'react';
+import { withRouter } from 'react-router';
+import Popper from '@material-ui/core/Popper';
+import { coinsData } from '../../data/myCoinsData';
 
 class Searchbar extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      value: "",
+      value: '',
       suggestions: [],
       anchorEl: null,
     };
@@ -36,11 +36,7 @@ class Searchbar extends React.Component {
       suggestions: [],
     });
     this.props.history.push({
-      pathname:
-        "/detail/" +
-        data.Name+
-        "/" +
-        data.Ticker ,
+      pathname: '/detail/' + data.Name + '/' + data.Ticker,
     });
   };
 
@@ -58,14 +54,14 @@ class Searchbar extends React.Component {
           class="inputBox"
         />
         <Popper
-          id={"simple-popper"}
-          open={value !== "" && suggestions.length > 0}
+          id={'simple-popper'}
+          open={value !== '' && suggestions.length > 0}
           anchorEl={this.state.anchorEl}
           class="paper"
         >
           <div class="list">
             <b>Did you mean this coin?</b>
-            <hr class="hr1" style={{ margin: "10px" }} />
+            <hr class="hr1" style={{ margin: '10px' }} />
             {suggestions.map((data, index) => {
               return (
                 <>

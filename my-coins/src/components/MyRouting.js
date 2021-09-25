@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import { BrowserRouter,Switch, Route, Redirect } from "react-router-dom";
-import MyCoinDetail from "./MyCoins/MyCoinDetail";
-import MyCoinListing from "./MyCoins/MyCoinListing";
-
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import MyCoinDetail from './MyCoins/MyCoinDetail';
+import MyCoinListing from './MyCoins/MyCoinListing';
 
 export default class MyRouting extends Component {
   componentDidMount() {
@@ -11,14 +10,12 @@ export default class MyRouting extends Component {
   render() {
     return (
       <BrowserRouter>
-
-      <Switch>
-        <Route exact path="/" component={MyCoinListing} />
-        <Route exact path="/detail/:name/:ticker" component={MyCoinDetail} />
-        <Redirect from="*" to="/" /> 
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={MyCoinListing} />
+          <Route exact path="/detail/:name/:ticker" component={MyCoinDetail} />
+          <Redirect from="*" to="/" />
+        </Switch>
       </BrowserRouter>
-
     );
   }
 }

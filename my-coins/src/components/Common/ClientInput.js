@@ -1,26 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {
-  Col,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-} from "reactstrap";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Col, FormGroup, Input, Label, Row, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 
-const ClientInput = ({
-  id,
-  label,
-  type,
-  grouptext,
-  addontype,
-  error,
-  mandatory,
-  ...rest
-}) => {
+const ClientInput = ({ id, label, type, grouptext, addontype, error, mandatory, ...rest }) => {
   return (
     <FormGroup className="form-group">
       <Row>
@@ -30,12 +12,10 @@ const ClientInput = ({
           </Label>
         </Col>
         <Col lg={7}>
-          {type === "inputgroup" ? (
+          {type === 'inputgroup' ? (
             <InputGroup size="m">
               <InputGroupAddon addonType={addontype}>
-                <InputGroupText
-                  style={{ borderLeft: mandatory ? "#FE6A6D 5px solid" : "" }}
-                >
+                <InputGroupText style={{ borderLeft: mandatory ? '#FE6A6D 5px solid' : '' }}>
                   {grouptext}
                 </InputGroupText>
               </InputGroupAddon>
@@ -60,6 +40,6 @@ ClientInput.propTypes = {
   mandatory: PropTypes.bool,
 };
 
-ClientInput.defaultProps = { type: "text", error: false };
+ClientInput.defaultProps = { type: 'text', error: false };
 
 export default ClientInput;
